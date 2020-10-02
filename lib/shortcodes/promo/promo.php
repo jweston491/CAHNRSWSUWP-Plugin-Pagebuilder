@@ -3,7 +3,7 @@
 ?><div class="<?php echo esc_html( $class ); ?>" data-requesturl="<?php echo esc_url( $request_url ); ?>">
 	<?php if ( ! empty( $img_src ) ) : ?>
 	<div class="cpb-image">
-		<img style="background-image:url(<?php echo esc_url( $img_src ); ?>);background-position:center center;background-size:cover;" src="<?php echo esc_url( cpb_get_plugin_url( 'lib/images/' . $img_ratio . '.gif' ) ); ?>" alt="<?php echo esc_html( $img_alt ); ?>" />
+		<img style="background-image:url(<?php echo esc_url( $img_src ); ?>);background-position:center center;background-size:cover;" src="<?php echo esc_url( cpb_get_plugin_url( 'lib/images/' . $img_ratio . '.gif' ) ); ?>" alt="" />
 	</div>
 	<?php endif; ?>
 	<div class="cpb-promo-caption">
