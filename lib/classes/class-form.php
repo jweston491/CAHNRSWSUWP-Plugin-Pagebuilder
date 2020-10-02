@@ -854,7 +854,7 @@ class Form {
 
 	}
 
-	public function get_header_tags( $include_empty = false ) {
+	public function get_header_tags( $include_empty = false, $setting = null, array $depr = null ) {
 
 		$tags = array(
 			'h2'     => 'H2',
@@ -870,6 +870,21 @@ class Form {
 			$tags = array_merge( array( '' => 'None' ), $tags );
 
 		} // End if
+
+		// Switch out deprecated options
+		if ( ! empty( $depr ) && isset( $setting ) ) {
+			foreach ( $depr as $option ) {
+				if ( $option === $setting ) {
+					//get the current option name
+					$temp_option = $tags[ $option ];
+
+					// Deprecate the option
+					$tags[ $option ] = "Deprecated: {$temp_option}";
+				} else {
+					unset( $tags[ $option ] );
+				}
+			} // end if
+		}
 
 		return apply_filters( 'cahnrswp_pagebuilder_header_tags', $tags );
 

@@ -136,7 +136,7 @@ class Subtitle_Shortcode {
 
 		$html = $cpb_form->text_field( cpb_get_input_name( $id, true, 'title' ), $settings['title'], 'Title' );
 
-		$html .= $cpb_form->select_field( cpb_get_input_name( $id, true, 'tag' ), $settings['tag'], $cpb_form->get_header_tags(), 'Tag Type' );
+		$html .= $cpb_form->select_field( cpb_get_input_name( $id, true, 'tag' ), $settings['tag'], $cpb_form->get_header_tags( false, $settings['tag'], array( 'span', 'strong' ) ), 'Tag Type' );
 
 		$adv = $cpb_form->select_field( cpb_get_input_name( $id, true, 'textcolor' ), $settings['textcolor'], $cpb_form->get_wsu_colors(), 'Text Color' );
 
