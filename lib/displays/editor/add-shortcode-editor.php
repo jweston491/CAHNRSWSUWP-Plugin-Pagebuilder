@@ -1,8 +1,7 @@
 <?php namespace CAHNRSWP\Plugin\Pagebuilder;
 
 ?><ul class="cpb-add-items-set">
-	<?php foreach ( $shortcodes as $slug => $shortcode ) : ?><li>
-		<input type="text" name="slug" value="<?php echo esc_html( $slug ); ?>" />
-		<span><?php echo esc_html( $shortcode['label'] ); ?></span>
-	</li><?php endforeach; ?>
+	<?php foreach ( $shortcodes as $slug => $shortcode ) : ?><?php if ( $shortcode['depr']['is_depr'] !== true ) : ?><li>
+			<input type="text" name="slug" value="<?php echo esc_html( $slug ); ?>" /><span><?php echo esc_html( $shortcode['label'] ); ?></span>
+	</li><?php endif; ?><?php endforeach; ?>
 </ul>

@@ -709,10 +709,11 @@ function cpb_get_editor_form_html( $shortcode ) {
 	} // End if
 
 	$form_args = array(
-		'slug' => $shortcode['slug'],
+		'slug'  => $shortcode['slug'],
 		'class' => implode( ' ', $form_classes ),
 		'title' => $shortcode['label'],
-		'size' => $shortcode['form_size'],
+		'size'  => $shortcode['form_size'],
+		'depr'  => $shortcode['depr'],
 	);
 
 	$form_html = cpb_get_editor_form_wrapper( $shortcode['id'], $form_content, $form_args );

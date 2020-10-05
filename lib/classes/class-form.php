@@ -55,6 +55,12 @@ class Form {
 
 		}
 
+		if ( ! isset( $args['depr'] ) ) {
+
+			$args['depr'] = false;
+
+		}
+
 		if ( ! is_array( $form ) ) {
 
 			$form = array( $args['default_label'] => $form );
@@ -66,6 +72,10 @@ class Form {
 		$html .= '<header>' . $args['title'] . '<a href="#" class="cpb-close-form-action"></a></header>';
 
 		$html .= '<div class="cpb-item-form-contents">';
+
+		if ( false !== $args['depr'] ) {
+			$html .= $args['depr']['depr_message'];
+		}
 
 		$html .= '<nav class="cpb-tabs">';
 
