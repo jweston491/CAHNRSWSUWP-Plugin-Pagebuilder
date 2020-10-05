@@ -997,6 +997,8 @@ function cpb_get_image_properties_array( $image_id, $image_size = 'single-post-t
 
 	$image_array['alt'] = \get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 
+	$image_array['caption'] = \get_post( $image_id )->post_excerpt;
+
 	$image_array['src'] = $image[0];
 
 	return $image_array;

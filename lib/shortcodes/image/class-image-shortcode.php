@@ -15,10 +15,11 @@ class Image_Shortcode {
 
 	// @var array $default_settings Array of default settings
 	protected $default_settings = array(
-		'img_src'   => '',
-		'img_id'    => '',
-		'url'       => '',
-		'alt'       => '',
+		'img_src' => '',
+		'img_id'  => '',
+		'url'     => '',
+		'alt'     => '',
+		'caption' => '',
 	);
 
 
@@ -80,12 +81,19 @@ class Image_Shortcode {
 				$image_array['alt'] = $atts['alt'];
 
 			} // End if
+			if ( ! empty( $atts['caption'] ) ) {
+
+				$image_array['caption'] = $atts['caption'];
+
+			} // End if
 
 			$url = $atts['url'];
 
 			$img_src = $atts['img_src'];
 
 			$alt = $image_array['alt'];
+
+			$caption = $image_array['caption'];
 
 			ob_start();
 
@@ -117,7 +125,9 @@ class Image_Shortcode {
 
 		$form .= '<hr/>';
 
-		$form .= $cpb_form->text_field( cpb_get_input_name( $id, true, 'alt' ), $settings['alt'], 'Image Alt Text' );
+		$form .= $cpb_form->textarea_field( cpb_get_input_name( $id, true, 'alt' ), $settings['alt'], 'Image Alt Text' );
+
+		$form .= $cpb_form->textarea_field( cpb_get_input_name( $id, true, 'caption' ), $settings['caption'], 'Image Caption' );
 
 		$form .= $cpb_form->text_field( cpb_get_input_name( $id, true, 'url' ), $settings['url'], 'Link Image To:' );
 
