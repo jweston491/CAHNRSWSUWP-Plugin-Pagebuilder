@@ -47,6 +47,10 @@ class Table_Shortcode {
 				'render_callback'       => array( $this, 'get_rendered_shortcode' ), // Callback to render shortcode
 				'default_atts'          => $default_atts,
 				'in_column'             => true, // Allow in column
+				'depr'            => array(
+					'is_depr'      => true,
+					'depr_message' => '<small>This is a deprecated item. It would be best to use the <strong>Image item.</strong></small>',
+				),
 			)
 		);
 
