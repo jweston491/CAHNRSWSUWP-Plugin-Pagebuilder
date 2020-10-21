@@ -48,7 +48,7 @@ class Figure_Shortcode {
 				'in_column'       => true,                                       // Allow in column,
 				'depr'            => array(
 					'is_depr'      => true,
-					'depr_message' => '<small>This is a deprecated item. It would be best to use the <strong>Image item.</strong></small>',
+					'depr_message' => 'This is a deprecated item. It would be best to use the <strong>Image item.</strong>',
 				),
 			)
 		);

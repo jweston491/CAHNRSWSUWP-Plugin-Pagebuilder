@@ -74,7 +74,7 @@ class Form {
 		$html .= '<div class="cpb-item-form-contents">';
 
 		if ( false !== $args['depr'] ) {
-			$html .= $args['depr']['depr_message'];
+			$html .= '<p>' . $args['depr']['depr_message'] . '</p>';
 		}
 
 		$html .= '<nav class="cpb-tabs">';
