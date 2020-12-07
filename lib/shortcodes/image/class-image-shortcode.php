@@ -15,11 +15,12 @@ class Image_Shortcode {
 
 	// @var array $default_settings Array of default settings
 	protected $default_settings = array(
-		'img_src' => '',
-		'img_id'  => '',
-		'url'     => '',
-		'alt'     => '',
-		'caption' => '',
+		'img_src'      => '',
+		'img_id'       => '',
+		'url'          => '',
+		'alt'          => '',
+		'alt_fallback' => 'true', //Existing image modules should fallback to alt from Media Library
+		'caption'      => '',
 	);
 
 
@@ -76,14 +77,10 @@ class Image_Shortcode {
 
 			$image_array = cpb_get_image_properties_array( $atts['img_id'] );
 
-			if ( ! empty( $atts['alt'] ) ) {
+			// Update the rendered image alt with module alt attribute if fallback is false
+			if ( 'false' === $atts['alt_fallback'] ) {
 
 				$image_array['alt'] = $atts['alt'];
-
-			} // End if
-			if ( ! empty( $atts['caption'] ) ) {
-
-				$image_array['caption'] = $atts['caption'];
 
 			} // End if
 
@@ -93,7 +90,7 @@ class Image_Shortcode {
 
 			$alt = $image_array['alt'];
 
-			$caption = $image_array['caption'];
+			$caption = $atts['caption'];
 
 			ob_start();
 
@@ -126,6 +123,9 @@ class Image_Shortcode {
 		$form .= '<hr/>';
 
 		$form .= $cpb_form->textarea_field( cpb_get_input_name( $id, true, 'alt' ), $settings['alt'], 'Image Alt Text' );
+
+		// New modules should allow users to have empty alt text
+		$form .= $cpb_form->hidden_field( cpb_get_input_name( $id, true, 'alt_fallback' ), 'false' );
 
 		$form .= $cpb_form->textarea_field( cpb_get_input_name( $id, true, 'caption' ), $settings['caption'], 'Image Caption' );
 
