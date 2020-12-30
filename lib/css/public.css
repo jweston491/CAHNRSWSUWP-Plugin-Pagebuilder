@@ -333,8 +333,13 @@ Items
 .cpb-row {
 	max-width: 100%;
 	margin: 0 auto;
-	/*position: relative;*/
+	position: relative;
 }
+
+.cpb-row > .cpb-row-inner {
+	position: relative;
+}
+
 .cpb-row > .cpb-row-inner > .cpb-column  {
 	padding-bottom: 0.5rem;
 	vertical-align: top;
@@ -428,6 +433,66 @@ Items
 	right: auto;
 	left: 100%;
 }
+
+.cpb-row.full-bleed-img {
+	box-sizing: border-box;
+}
+
+.cpb-row > .row-bg-image {
+	position: absolute;
+	background-size: cover;
+	background-position: center center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.cpb-row.full-bleed-img > .row-bg-image {
+	width: 100vw;
+}
+
+/* General purpose, assumes content container is aligned in middle of screen */
+.cpb-row.full-bleed-img > .row-bg-image {
+	margin-left: calc((-100vw + 100%)/2);
+}
+
+@media screen and (max-width: 396px) {
+	#binder.fixed main[id*="wsu"] .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: -2rem;
+	}
+}
+
+@media screen and (min-width: 694px) and (max-width: 791px) {
+	#binder.fixed main[id*="wsu"] .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: calc((-100vw + 694px)/2 - 2rem)
+	}
+}
+
+/* Spine-specific styles for full bleed images*/
+@media screen and (max-width:1200px) {
+	body.disable-spine .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: calc((-100vw + 100% + 2rem)/2);
+	}
+}
+
+@media screen and (min-width: 990px) {
+	body:not(.disable-spine) #binder main[id*="wsu"].is-cropped-spine .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: calc((-100vw + 100% + 198px)/2);
+	}
+	body:not(.disable-spine) #binder main[id*="wsu"]:not(.is-cropped-spine) .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: calc((-100vw + 100% - 198px)/2);
+	}
+}
+
+@media screen and (min-width: 1201px) {
+
+	body:not(.disable-spine) #binder main[id*="wsu"]:not(.is-cropped-spine) .cpb-row.full-bleed-img > .row-bg-image {
+		margin-left: calc((-100vw + 100% - 198px - 2rem)/2);
+	}
+}
+
+/* End Spine-specific styles for full width background images */
+
 
 /* Layout Items --- */
 .cpb-column figure,
