@@ -369,7 +369,11 @@ class Promo_Shortcode {
 
 		$display .= $cpb_form->checkbox_field( cpb_get_input_name( $id, true, 'unset_link' ), 1, $settings['unset_link'], 'Remove Link' );
 
-		$display .= $cpb_form->checkbox_field( cpb_get_input_name( $id, true, 'as_lightbox' ), 1, $settings['as_lightbox'], 'Display Lightbox' );
+		// Deprecate Display Lightbox
+		if ( $settings['as_lightbox'] ) {
+			$display .= $cpb_form->checkbox_field( cpb_get_input_name( $id, true, 'as_lightbox' ), 1, $settings['as_lightbox'], 'Deprecated: Display Lightbox' );
+		}
+		
 
 		$adv = $cpb_form->text_field( cpb_get_input_name( $id, true, 'csshook' ), $settings['csshook'], 'CSS Hook' );
 
