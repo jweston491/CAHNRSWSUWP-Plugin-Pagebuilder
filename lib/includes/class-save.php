@@ -215,7 +215,7 @@ class Save {
 		$excerpt = \wp_strip_all_tags( $excerpt );
 
 		// Shorten to 35 words and convert special characters
-		$excerpt = \htmlspecialchars( \wp_trim_words( $excerpt, 35 ) );
+		$excerpt = \esc_html( \wp_trim_words( $excerpt, 35 ) );
 
 		return $excerpt;
 
