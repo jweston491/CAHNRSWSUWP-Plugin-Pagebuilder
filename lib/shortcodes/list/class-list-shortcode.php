@@ -207,7 +207,11 @@ class List_Shortcode {
 			'full'   => 'Full',
 		);
 
-		$display = $cpb_form->text_field( cpb_get_input_name( $id, true, 'title' ), $settings['title'], 'Title' );
+		// Deprecate Title
+		if ( ! empty( $settings['title'] ) ) {
+			$display = $cpb_form->text_field( cpb_get_input_name( $id, true, 'title' ), $settings['title'], 'Deprecated: Title' );
+		}
+		
 
 		$display .= $cpb_form->select_field( cpb_get_input_name( $id, true, 'excerpt_length' ), $settings['excerpt_length'], $excerpt_length, 'Summary Length' );
 
