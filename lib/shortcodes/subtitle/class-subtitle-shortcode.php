@@ -130,8 +130,8 @@ class Subtitle_Shortcode {
 
 		$styles = array(
 			''                                => 'None',
-			'underline-heading'               => 'Underlined Heading',
-			'underline-heading small-heading' => 'Underlined Heading (small font)',
+			'underline-heading'               => '(Deprecated): Underlined Heading',
+			'underline-heading small-heading' => '(Deprecated): Underlined Heading (small font)',
 		);
 
 		$html = $cpb_form->text_field( cpb_get_input_name( $id, true, 'title' ), $settings['title'], 'Title' );
@@ -146,7 +146,11 @@ class Subtitle_Shortcode {
 
 		$adv .= $cpb_form->text_field( cpb_get_input_name( $id, true, 'csshook' ), $settings['csshook'], 'CSS Hook' );
 
-		$adv .= $cpb_form->select_field( cpb_get_input_name( $id, true, 'style' ), $settings['style'], $styles, 'Style' );
+		// Deprecate style settings
+		if ( in_array( $settings['style'], array('underline-heading','underline-heading small-heading' ), true ) ) {
+			$adv .= $cpb_form->select_field( cpb_get_input_name( $id, true, 'style' ), $settings['style'], $styles, 'Style' );
+		}
+		
 
 		return array(
 			'Basic'    => $html,
