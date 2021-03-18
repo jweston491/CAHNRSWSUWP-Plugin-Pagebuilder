@@ -59,11 +59,14 @@ class Tabs_Shortcode {
 		cpb_register_shortcode(
 			'cpbtabs',
 			$args = array(
-				'form_callback'         => array( $this, 'get_shortcode_form' ),
-				'label'                 => 'Tabs', // Label of the item
-				'render_callback'       => array( $this, 'get_rendered_shortcode' ), // Callback to render shortcode
-				'default_atts'          => $default_atts,
-				'in_column'             => true, // Allow in column
+				'form_callback'   => array( $this, 'get_shortcode_form' ),
+				'label'           => 'Tabs',                                     // Label of the item
+				'render_callback' => array( $this, 'get_rendered_shortcode' ),   // Callback to render shortcode
+				'default_atts'    => $default_atts,
+				'in_column'       => true,                                       // Allow in column
+				'depr'            => array(
+					'is_depr' => true,
+				)
 			)
 		);
 
