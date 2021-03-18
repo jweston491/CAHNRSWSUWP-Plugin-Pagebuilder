@@ -661,13 +661,13 @@ display: none;
 
 .cpb-gallery-columns-1 {width: 100%;}
 
-.cpb-gallery-columns-2 {width: 50%;}
+.cpb-gallery-columns-2 {width: 49%;}
 
-.cpb-gallery-columns-3 {width: 33.33%;}
+.cpb-gallery-columns-3 {width: 32%;}
 
-.cpb-gallery-columns-4 {width: 25%;}
+.cpb-gallery-columns-4 {width: 24%;}
 
-.cpb-gallery-columns-5 {width: 20%;}
+.cpb-gallery-columns-5 {width: 19%;}
 
 .cpb-gallery .cpb-gallery-inner {margin: 0 0.75rem;}
 
@@ -675,9 +675,25 @@ display: none;
 
 .cpb-gallery .cpb-gallery-inner .cpb-image {padding-bottom: 75%;}
 
-@media only screen and (max-width: 850px) { .cpb-gallery-columns-4 { width: 50%;} }
+@media only screen and (max-width: 1000px) {
+	.cpb-gallery-columns-4, .cpb-gallery-columns-5 {
+		width: 32%;
+	}	
+}
 
-@media only screen and (max-width: 450px) { .cpb-gallery-columns-4 { width: auto; display: block;} }
+@media only screen and (max-width: 850px) {
+	.cpb-gallery-columns-3, .cpb-gallery-columns-4, .cpb-gallery-columns-5 {
+		width: 49%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.cpb-gallery-columns-2, .cpb-gallery-columns-3, .cpb-gallery-columns-4, .cpb-gallery-columns-5 {
+		width: 100%;
+	}
+}
+
+
 /*Items: FAQ
 --------------------------------------------- */
 .cpb-faq h2,
@@ -704,7 +720,7 @@ display: none;
 }
 
 .cpb-faq dd {
-argin: 0;
+/* argin: 0; */
 	padding: 1rem 1.5rem;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
@@ -753,9 +769,6 @@ argin: 0;
 .cpb-row.thirds-half-left > .cpb-row-inner > .cpb-column.two { width: 50%; padding-right: 1rem; padding-left: 0;}
 	.cpb-row.thirds-half-left > .cpb-row-inner > .cpb-column.three { width: 50%; padding-left: 1rem; padding-right: 0;}
 
-	.cpb-gallery-columns-4 {
-   	width: 50%;
-	}
 }
 @media only screen and (max-width: 700px) {
 	.cpb-row.triptych > .cpb-row-inner,
