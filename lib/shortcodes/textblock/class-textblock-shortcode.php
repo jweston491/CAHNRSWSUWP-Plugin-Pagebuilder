@@ -28,8 +28,6 @@ class Textblock {
 
 		\add_action( 'init', array( $this, 'register_shortcode' ) );
 
-		\add_filter( 'cpb_the_content', array( $this, 'filter_ptags_on_images' ) );
-
 		\add_filter( 'cpb_the_content', array( $this, 'remove_empty_p' ), 20, 1 );
 
 	} // End __construct
@@ -221,10 +219,6 @@ class Textblock {
 		return $content;
 
 	} // end get_more_content
-
-	public function filter_ptags_on_images( $content ) {
-		return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-	}
 
 	public function remove_empty_p( $content ){
 		$content = force_balance_tags( $content );
